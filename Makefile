@@ -14,28 +14,11 @@ OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 # Executable name
 EXEC = hangman
 
-# Default target and phony targets
+# Phony targets
+.PHONY: all clean fclean run re ascii_art_loading
 
 # Default target to build the executable and display loading effect
 all: ascii_art_loading $(EXEC)
-
-# Target to build the executable
-$(EXEC): $(OBJECTS)
-	@$(CC) $(LDFLAGS) $^ -o $@
-	@echo "\n\033[1;32mCompilation Completed Successfully!\033[0m"
-
-# Rule to compile source files into object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-# Target to clean up objects and the executable
-clean:
-	@echo "\033[1;36mCleaning up objects and executable...\033[0m"
-	@rm -f $(OBJ_DIR)/*.o $(EXEC)
-	@echo "\033[1;36mClean up completed!\033[0m"
-
-# Target to clean and rebuild the project
-re: clean all
 
 # ASCII Art display and Loading Effect
 ascii_art_loading:
@@ -53,5 +36,30 @@ ascii_art_loading:
 		sleep 1; \
 	done
 
-# Phony targets
-.PHONY: all clean re ascii_art_loading
+# Rule to compile source files into object files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Target to build the executable
+$(EXEC): $(OBJECTS)
+	@$(CC) $(LDFLAGS) $^ -o $@
+	@echo "\n\033[1;32mCompilation Completed Successfully!\033[0m"
+
+# Target to run the executable
+run: $(EXEC)
+	@./$(EXEC)
+
+# Target to clean up objects
+clean:
+	@echo "\033[1;36mCleaning up objects...\033[0m"
+	@rm -f $(OBJ_DIR)/*.o
+	@echo "\033[1;36mClean up completed!\033[0m"
+
+# Target to clean up objects and the executable
+fclean: clean
+	@echo "\033[1;36mCleaning up executable...\033[0m"
+	@rm -f $(EXEC)
+	@echo "\033[1;36mFull clean up completed!\033[0m"
+
+# Target to clean and rebuild the project
+re: fclean all
