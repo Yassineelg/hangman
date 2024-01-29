@@ -42,10 +42,6 @@ Welcome to the Hangman Game in C! This is a terminal-based hangman game that off
 2. Ensure `libncurses` and `gcc` are installed on your system.
 3. Navigate to the project directory and run `make` to compile the game using the Makefile.
 
-Understood. Let's enhance the Usage section to provide more details about the commands available with `./hangman`. Here's the revised section:
-
----
-
 ## 🔥 Usage
 
 **Launching the Game:**
@@ -53,17 +49,17 @@ Understood. Let's enhance the Usage section to provide more details about the co
 
 **Available Commands:**
 - `./hangman`: Starts the game with default settings.
-- `./hangman [options]`: Launch the game with specified options.
-  - `[dictionary_file]`: Specify a custom dictionary file for word selection.
-  - `[difficulty]`: Choose between Easy, Medium, or Hard difficulty levels.
-  - `[category]`: Select a specific word category for gameplay.
+- `./hangman [dictionary_file.csv] [difficulty] [category]`: Launch the game with specified options.
+  - `dictionary_file.csv`: Specify a custom dictionary file containing words, their difficulties, and categories (optional).
+  - `difficulty`: Choose between `facile` (Easy), `moyen` (Medium), or `difficile` (Hard) difficulty levels for word selection (optional).
+  - `category`: Select a specific word category for gameplay (optional).
 
 **Gameplay Instructions:**
 - Once the game starts, you will be prompted to guess letters to reveal the word.
 - The game tracks your guesses and updates the hangman drawing accordingly.
 - You can also view your current score and progress during gameplay.
 
-Remember to consult the help command inside the game for more detailed instructions on gameplay and options.
+**Note:** The `[dictionary_file.csv]`, `[difficulty]`, and `[category]` arguments are optional and can be used to customize your game experience.
 
 ## 🤝 Contributing
 
