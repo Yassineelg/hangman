@@ -6,7 +6,6 @@
 #include "hangman.h"
 
 #define DEFAULT_DICTIONARY "default_dictionary.csv"
-#define RANDOM_DIFFICULTY "random"
 #define INVALID_FILE_ERROR 1
 
 int main(int argc, char *argv[])
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
     case 1:
         // Default settings
         dictionaryFilename = DEFAULT_DICTIONARY;
-        difficulty = RANDOM_DIFFICULTY;
         break;
     case 3:
     case 4:

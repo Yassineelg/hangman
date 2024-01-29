@@ -116,7 +116,7 @@ void displayGameStatus(int errors, char *maskedWord, char *category)
 {
     displayHangman(errors);
     printf("Mot à trouver : %s\n", maskedWord);
-    printf("Catégorie : %s\n", category);
+    printf("Catégorie : %s\n", category ? category : "Aléatoire");
 }
 
 // Function to play the hangman game
@@ -167,7 +167,7 @@ void startHangmanGame(Word *dictionary, int dictionarySize, char *difficulty, ch
         int tempSize = 0;
         char *wordToFind;
 
-        if (difficulty[0] == '\0' && category[0] == '\0')
+        if (!difficulty && !category)
         {
             wordToFind = getRandomWord(dictionary, dictionarySize);
         }
