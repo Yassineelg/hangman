@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     }
 
     // Start game
-    char *wordToFind = startHangmanGame(dictionary, dictionarySize, difficulty, category);
+    startHangmanGame(dictionary, dictionarySize, difficulty, category);
 
     // Clean dictionary
     cleanDictionary(dictionary, dictionarySize);
