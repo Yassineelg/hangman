@@ -149,7 +149,7 @@ void fillTempArray(Word *dictionary, int dictionarySize, Word *tempArray, int *t
     for (int i = 0; i < dictionarySize; i++)
     {
         if ((strcmp(dictionary[i].difficulty, difficulty) == 0) &&
-            (category[0] == '\0' || strcmp(dictionary[i].category, category) == 0))
+            (category == NULL || category[0] == '\0' || strcmp(dictionary[i].category, category) == 0))
         {
             tempArray[(*tempSize)++] = dictionary[i];
         }

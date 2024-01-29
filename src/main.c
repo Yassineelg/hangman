@@ -27,7 +27,12 @@ int main(int argc, char *argv[])
     case 4:
         // User-provided settings
         dictionaryFilename = argv[1];
-        difficulty = argv[2];
+
+        if (argc >= 3)
+        {
+            difficulty = argv[2];
+        }
+
         if (argc == 4)
         {
             category = argv[3];
