@@ -3,6 +3,7 @@
 #include <string.h>
 #include "dictionary.h"
 #include "error_toolbox.h"
+#include "hangman.h"
 
 #define DEFAULT_DICTIONARY "default_dictionary.csv"
 #define RANDOM_DIFFICULTY "random"
@@ -45,6 +46,9 @@ int main(int argc, char *argv[])
         fprintf(stderr, "%s : invalid file.\n", dictionaryFilename);
         return INVALID_FILE_ERROR;
     }
+
+    // Start game
+    char *wordToFind = startHangmanGame(dictionary, dictionarySize, difficulty, category);
 
     // Clean dictionary
     cleanDictionary(dictionary, dictionarySize);
